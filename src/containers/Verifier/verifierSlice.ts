@@ -8,16 +8,26 @@ const initialState: VerifierState = {
   value: '',
 }
 
+const correctPass = '2835';
+
 export const verifierSlice = createSlice({
   name: 'verifier',
   initialState,
   reducers: {
     add: (state,action:PayloadAction<string>) => {
+      if(state.value.length >= 4) {
+        alert("The length of the password shouldn't be longer than 4 symbols")
+        return {...state, value: state.value}
+      }
       return {...state, value: state.value + action.payload}
     },
     backspace: (state) => {},
     verify: (state) => {
-      console.log(state.value)
+      if(state.value === correctPass) {
+        return {...state, value: 'Access granted'}
+      }else{
+        return {...state, value: 'Access denied'}
+      }
     },
   }
 });
