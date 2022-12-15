@@ -13,13 +13,14 @@ export const verifierSlice = createSlice({
   initialState,
   reducers: {
     add: (state,action:PayloadAction<string>) => {
-     const value = state.value + action.payload;
-     console.log(value);
-     return state
+      return {...state, value: state.value + action.payload}
     },
-
+    backspace: (state) => {},
+    verify: (state) => {
+      console.log(state.value)
+    },
   }
 });
 
 export const verifierReducer = verifierSlice.reducer;
-export const {add} = verifierSlice.actions;
+export const {add, backspace, verify} = verifierSlice.actions;

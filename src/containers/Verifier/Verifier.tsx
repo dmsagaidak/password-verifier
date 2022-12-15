@@ -1,7 +1,7 @@
 import React from 'react';
 import {RootState} from "../../app/store";
 import {useDispatch, useSelector} from "react-redux";
-import {add} from "./verifierSlice";
+import {add, backspace, verify} from "./verifierSlice";
 import './Verifier.css';
 
 const Verifier = () => {
@@ -26,9 +26,9 @@ const Verifier = () => {
         <button className="btn" onClick={() => dispatch(add('9'))}>9</button>
       </div>
       <div className="container">
-        <button className="btn"> ᐳ </button>
+        <button className="btn" onClick={() => dispatch(backspace())}> ᐳ </button>
         <button className="btn" onClick={() => dispatch(add('0'))}>0</button>
-        <button className="btn">E</button>
+        <button className="btn" onClick={() => dispatch(verify())}>E</button>
       </div>
     </div>
   );
