@@ -18,9 +18,10 @@ const Verifier = () => {
     classNames.push('wrong');
   }
 
+
   return (
     <div>
-      <div className={classNames.join(' ')}>{verifierValue}</div>
+      <div className={classNames.join(' ')}>{verifierValue.length > 0 && verifierValue.length <= 4 ? verifierValue.replace(/[\s\S]/g, "*"): verifierValue}</div>
       <div className="container">
         <button className="btn" onClick={() => dispatch(add('1'))}>1</button>
         <button className="btn" onClick={() => dispatch(add('2'))}>2</button>

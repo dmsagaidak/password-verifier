@@ -19,6 +19,7 @@ export const verifierSlice = createSlice({
         alert("The lengths of the password shouldn be 4 symbols")
         return {...state, value: state.value}
       }
+
       return {...state, value: state.value + action.payload}
     },
     backspace: (state) => {
@@ -26,6 +27,11 @@ export const verifierSlice = createSlice({
       return {...state, value: state.value.slice(0, max)}
     },
     verify: (state) => {
+      if(state.value.length < 4) {
+        alert("The lengths of the password shouldn be 4 symbols, please enter more");
+        return {...state, value: state.value}
+      }
+
       if(state.value === correctPass) {
         return {...state, value: 'Access granted'}
       }else{
