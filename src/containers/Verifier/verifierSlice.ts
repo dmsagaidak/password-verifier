@@ -32,8 +32,11 @@ export const verifierSlice = createSlice({
         return {...state, value: 'Access denied'}
       }
     },
+    reset: (state) =>{
+      return {...state, value: ''}
+    }
   }
 });
 
 export const verifierReducer = verifierSlice.reducer;
-export const {add, backspace, verify} = verifierSlice.actions;
+export const {add, backspace, verify, reset} = verifierSlice.actions;

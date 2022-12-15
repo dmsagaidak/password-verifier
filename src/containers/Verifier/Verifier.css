@@ -29,6 +29,14 @@
     line-height: 20px;
 }
 
+.reset_btn{
+    background: red;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    line-height: 20px;
+}
+
 .container{
     margin-bottom: 5px;
 }

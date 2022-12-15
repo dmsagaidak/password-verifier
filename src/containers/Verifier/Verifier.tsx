@@ -1,7 +1,7 @@
 import React from 'react';
 import {RootState} from "../../app/store";
 import {useDispatch, useSelector} from "react-redux";
-import {add, backspace, verify} from "./verifierSlice";
+import {add, backspace, reset, verify} from "./verifierSlice";
 import './Verifier.css';
 
 const Verifier = () => {
@@ -11,11 +11,11 @@ const Verifier = () => {
   const classNames = ['screen'];
 
   if(verifierValue === 'Access granted') {
-    classNames.push('right')
+    classNames.push('right');
   }
 
   if(verifierValue === 'Access denied') {
-    classNames.push('wrong')
+    classNames.push('wrong');
   }
 
   return (
@@ -40,6 +40,9 @@ const Verifier = () => {
         <button className="btn" onClick={() => dispatch(backspace())}> ᐳ </button>
         <button className="btn" onClick={() => dispatch(add('0'))}>0</button>
         <button className="btn" onClick={() => dispatch(verify())}>E</button>
+      </div>
+      <div className="container">
+        <button className="reset_btn" onClick={() => dispatch(reset())}>Reset</button>
       </div>
     </div>
   );
