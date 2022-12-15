@@ -16,7 +16,7 @@ export const verifierSlice = createSlice({
   reducers: {
     add: (state,action:PayloadAction<string>) => {
       if(state.value.length >= 4) {
-        alert("The length of the password shouldn't be longer than 4 symbols")
+        alert("The lengths of the password shouldn be 4 symbols")
         return {...state, value: state.value}
       }
       return {...state, value: state.value + action.payload}

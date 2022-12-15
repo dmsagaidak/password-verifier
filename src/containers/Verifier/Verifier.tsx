@@ -6,10 +6,21 @@ import './Verifier.css';
 
 const Verifier = () => {
   const dispatch = useDispatch();
-  const verifierValue = useSelector((state: RootState) => state.verifier.value)
+  const verifierValue = useSelector((state: RootState) => state.verifier.value);
+
+  const classNames = ['screen'];
+
+  if(verifierValue === 'Access granted') {
+    classNames.push('right')
+  }
+
+  if(verifierValue === 'Access denied') {
+    classNames.push('wrong')
+  }
+
   return (
     <div>
-      <div className="screen">{verifierValue}</div>
+      <div className={classNames.join(' ')}>{verifierValue}</div>
       <div className="container">
         <button className="btn" onClick={() => dispatch(add('1'))}>1</button>
         <button className="btn" onClick={() => dispatch(add('2'))}>2</button>
