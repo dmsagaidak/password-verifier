@@ -21,7 +21,10 @@ export const verifierSlice = createSlice({
       }
       return {...state, value: state.value + action.payload}
     },
-    backspace: (state) => {},
+    backspace: (state) => {
+      const max = state.value.length - 1;
+      return {...state, value: state.value.slice(0, max)}
+    },
     verify: (state) => {
       if(state.value === correctPass) {
         return {...state, value: 'Access granted'}
